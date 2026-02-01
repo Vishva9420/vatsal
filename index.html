@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Good Morning, Vatsal ☀️</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --pink:#F6C1D1;
+      --accent:#E75480;
+      --text:#2b1e23;
+      --muted:#6f4b58;
+      --card:rgba(255,255,255,.78);
+      --border:rgba(231,84,128,.18);
+      --shadow:0 20px 45px rgba(231,84,128,.22);
+      --r:22px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Poppins,system-ui;
+      background:
+        radial-gradient(900px 500px at 20% 10%, rgba(255,255,255,.7), transparent 60%),
+        linear-gradient(135deg, var(--pink), #FFE1EC);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+
+    .wrap{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+
+    .card{
+      width:min(720px,100%);
+      background:var(--card);
+      border-radius:var(--r);
+      box-shadow:var(--shadow);
+      border:1px solid var(--border);
+      padding:30px;
+      text-align:center;
+      animation:pop .6s ease both;
+      position:relative;
+    }
+
+    @keyframes pop{
+      from{opacity:0; transform:scale(.97)}
+      to{opacity:1; transform:scale(1)}
+    }
+
+    h1{
+      font-family:"Playfair Display",serif;
+      font-size:clamp(30px,4vw,42px);
+      margin:0 0 10px;
+    }
+
+    .sub{
+      color:var(--muted);
+      margin-bottom:22px;
+      font-size:15px;
+    }
+
+    .tease{
+      font-size:18px;
+      color:var(--muted);
+      min-height:76px;
+      line-height:1.75;
+      margin-bottom:26px;
+      transition:.25s;
+      padding:0 4px;
+    }
+
+    .btns{
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    button{
+      border:none;
+      padding:12px 20px;
+      border-radius:16px;
+      background:linear-gradient(135deg, var(--accent), #ff7aa6);
+      color:white;
+      font-weight:700;
+      cursor:pointer;
+      box-shadow:0 12px 24px rgba(231,84,128,.25);
+      transition:.15s;
+    }
+    button:hover{transform:translateY(-1px)}
+    button:active{transform:translateY(0)}
+
+    button.ghost{
+      background:white;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+      font-weight:700;
+    }
+
+    .footer{
+      margin-top:22px;
+      font-size:14px;
+      color:var(--muted);
+      opacity:.9;
+    }
+
+    /* Floating emoji */
+    .floaty{
+      position:fixed;
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%);
+      z-index:9999;
+      pointer-events:none;
+      will-change:transform, opacity;
+      filter: drop-shadow(0 10px 10px rgba(231,84,128,.18));
+      animation: rise 1.3s ease forwards;
+    }
+    @keyframes rise{
+      0%   { opacity:0; transform:translate(var(--x), var(--y)) scale(.9); }
+      15%  { opacity:1; }
+      100% { opacity:0; transform:translate(calc(var(--x) * 1.3), calc(var(--y) - 220px)) rotate(var(--r)) scale(1.25); }
+    }
+
+    /* Ending screen (modal) */
+    .modal{
+      position:fixed;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:22px;
+      background:rgba(43,30,35,.22);
+      backdrop-filter: blur(6px);
+      z-index:9998;
+    }
+    .modal.show{ display:flex; }
+
+    .modalCard{
+      width:min(560px,100%);
+      background:rgba(255,255,255,.88);
+      border:1px solid rgba(231,84,128,.20);
+      border-radius:24px;
+      box-shadow:0 22px 60px rgba(231,84,128,.20);
+      padding:26px 22px;
+      text-align:center;
+      animation: pop2 .35s ease both;
+      position:relative;
+    }
+    @keyframes pop2{
+      from{opacity:0; transform:scale(.96) translateY(8px)}
+      to{opacity:1; transform:scale(1) translateY(0)}
+    }
+    .sun{
+      font-size:38px;
+      margin-bottom:8px;
+    }
+    .modalTitle{
+      font-family:"Playfair Display",serif;
+      font-size:30px;
+      margin:0 0 10px;
+    }
+    .modalText{
+      margin:0 auto 18px;
+      max-width:420px;
+      color:var(--muted);
+      line-height:1.75;
+      font-size:16px;
+    }
+    .modalBtns{
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    .tiny{
+      margin-top:14px;
+      font-size:13px;
+      color:rgba(111,75,88,.9);
+    }
+  </style>
+</head>
+
+<body>
+<div class="wrap">
+  <div class="card">
+    <h1>Vatsal 😌</h1>
+    <div class="sub">A little morning flirt… just for you ☀️💗</div>
+
+    <div class="tease" id="tease">
+      Good morning, handsome ☀️
+    </div>
+
+    <div class="btns">
+      <button id="tapBtn">Tap again 😌</button>
+      <button class="ghost" id="restartBtn">Restart 🙈</button>
+    </div>
+
+    <div class="footer">
+      ❤️❤️ made with 2× love 😌❤️
+    </div>
+  </div>
+</div>
+
+<!-- Ending Screen -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Good Morning">
+  <div class="modalCard">
+    <div class="sun">☀️</div>
+    <h2 class="modalTitle">Good Morning, Vatsal</h2>
+    <p class="modalText">
+      I just wanted your day to start with a smile 😌<br>
+      And a reminder that I’m very into you… always 😏❤️
+    </p>
+    <div class="modalBtns">
+      <button id="moreBtn">More flirting 😏</button>
+      <button class="ghost" id="closeBtn">Close 😌</button>
+    </div>
+    <div class="tiny">Tip: Tap anywhere for cute floating emojis 💗</div>
+  </div>
+</div>
+
+<script>
+  // Romantic-flirty morning lines (no fight, no sarcasm)
+  const lines = [
+    "Good morning, handsome 😏☀️",
+    "Have a very nice day 😌",
+    "Miss you 🙈💗",
+    "If you’re smiling, I’m winning 😏",
+    "Come here… I’m saving a hug for you 🤗😌",
+    "Okay fine. I’m obsessed a little 😌❤️😏",
+    "I love you ❤️❤️",
+    "Tap again to unlock your Good Morning message ☀️😌"
+  ];
+
+  let i = 0;
+  const teaseEl = document.getElementById("tease");
+  const tapBtn = document.getElementById("tapBtn");
+  const restartBtn = document.getElementById("restartBtn");
+
+  const modal = document.getElementById("modal");
+  const closeBtn = document.getElementById("closeBtn");
+  const moreBtn = document.getElementById("moreBtn");
+
+  function setTease(text){
+    teaseEl.style.opacity = 0;
+    setTimeout(() => {
+      teaseEl.textContent = text;
+      teaseEl.style.opacity = 1;
+    }, 130);
+  }
+
+  function spawnFloaty(){
+    const emojis = ["❤️","😌","💗","😏","☀️","💕"];
+    const e = document.createElement("span");
+    e.className = "floaty";
+    e.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    e.style.fontSize = (18 + Math.random()*20) + "px";
+
+    // Random start position
+    const x = (Math.random()*80 - 40) + "vw";   // -40vw..40vw from center
+    const y = (Math.random()*30 + 40) + "vh";   // 40vh..70vh
+    const r = (Math.random()*80 - 40) + "deg";
+    e.style.setProperty("--x", x);
+    e.style.setProperty("--y", y);
+    e.style.setProperty("--r", r);
+
+    document.body.appendChild(e);
+    setTimeout(() => e.remove(), 1350);
+  }
+
+  function sprinkle(n=6){
+    for(let k=0;k<n;k++){
+      setTimeout(spawnFloaty, k*70);
+    }
+  }
+
+  function openModal(){
+    modal.classList.add("show");
+    sprinkle(10);
+  }
+
+  function closeModal(){
+    modal.classList.remove("show");
+  }
+
+  tapBtn.addEventListener("click", () => {
+    sprinkle(6);
+
+    i++;
+    if(i < lines.length){
+      setTease(lines[i]);
+      // when reaching last line, next tap opens modal
+      if(i === lines.length - 1){
+        tapBtn.textContent = "Open ☀️😌";
+      }
+    } else {
+      openModal();
+      // keep it looping softly after modal opened
+      i = lines.length - 1;
+    }
+  });
+
+  restartBtn.addEventListener("click", () => {
+    i = 0;
+    tapBtn.textContent = "Tap again 😌";
+    setTease(lines[0]);
+    sprinkle(8);
+  });
+
+  closeBtn.addEventListener("click", closeModal);
+
+  moreBtn.addEventListener("click", () => {
+    closeModal();
+    // add a few extra flirty pops
+    const extras = [
+      "One more thing… you’re really attractive 😏",
+      "Okay bye… but not really 😌❤️",
+      "Send me one smile. Deal? 😏💗"
+    ];
+    setTease(extras[Math.floor(Math.random()*extras.length)]);
+    sprinkle(12);
+  });
+
+  // Tap anywhere for floating emojis (very cute)
+  document.addEventListener("click", (ev) => {
+    // avoid double-sprinkling when clicking buttons
+    if(ev.target.tagName.toLowerCase() === "button") return;
+    sprinkle(4);
+  });
+
+  // Start with a gentle sprinkle on load
+  setTimeout(() => sprinkle(6), 400);
+</script>
+</body>
+</html>
